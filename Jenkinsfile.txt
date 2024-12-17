@@ -50,6 +50,15 @@ pipeline {
 			}
 		}
 		//Code ends for stage Code Analysis
-		
+		//Code starts for stage Code Coverage
+                stage('Code Coverage') {
+            steps {
+                //Generate coverage report
+                step([
+                    $class: 'JacocoPublisher'
+                ])
+            }
+        }
+                //Code ends for stage Code Coverage
     }
 }
